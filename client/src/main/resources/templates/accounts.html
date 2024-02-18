@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div th:if="${error_snh}">
+    <span>This should not happen</span>
+</div>
+<nav>
+    <a href="/">Welcome</a> |
+    <a href="/accounts">Accounts</a> |
+    <a href="/transactions">Transactions</a>
+    <a href="/transactions/newTransaction">new Transaction</a>
+</nav>
+
+<main>
+    <h1>List of accounts</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Type</th>
+            <th>Balance</th>
+            <th>Open date</th>
+            <th>Close date</th>
+            <th>Account status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="singleAccount : ${listOfAccounts}">
+            <td th:text="${singleAccount.accountNumber}"></td>
+            <td th:text="${singleAccount.accountType}"></td>
+            <td th:text="${singleAccount.currentBalance}"></td>
+            <td th:text="${singleAccount.dateOpened}"></td>
+            <td th:text="${singleAccount.dateClosed}"></td>
+            <td th:text="${singleAccount.accountStatus}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <p>&copy; 2024 amandass bank management system. All rights reserved.</p>
+</footer>
+</body>
+</html>

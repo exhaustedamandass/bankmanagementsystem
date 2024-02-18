@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <a href="/">Welcome</a> |
+    <a href="/accounts">Accounts</a> |
+    <a href="/transactions">Transactions</a>
+    <a href="/transactions/newTransaction">new Transaction</a>
+</nav>
+    <main>
+        <div th:if="${message}" class="alert alert-success" role="alert">
+            <strong th:text="${message}"></strong>
+        </div>
+        <h1 class="main">Welcome</h1>
+        <p id="hello">Hello, world!</p>
+        <p class="main">Happy to see you here.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 amandass bank management system. All rights reserved.</p>
+    </footer>
+</body>
+</html>

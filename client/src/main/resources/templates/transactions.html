@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="/">Welcome</a> |
+    <a href="/accounts">Accounts</a> |
+    <a href="/transactions">Transactions</a>
+    <a href="/transactions/newTransaction">new Transaction</a>
+</nav>
+<main>
+    <h1>List of transactions</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Transaction Id</th>
+            <th>Transaction Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Account Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="singleTransaction : ${listOfTransactions}">
+            <td th:text="${singleTransaction.transactionId}"></td>
+            <td th:text="${singleTransaction.transactionType}"></td>
+            <td th:text="${singleTransaction.amount}"></td>
+            <td th:text="${singleTransaction.transactionDate}"></td>
+            <td th:text="${singleTransaction.clientAccount}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+    <footer>
+        <p>&copy; 2024 amandass bank management system. All rights reserved.</p>
+    </footer>
+</body>
+</html>

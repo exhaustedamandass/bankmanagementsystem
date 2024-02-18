@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Management</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <a href="/">Welcome</a> |
+  <a href="/accounts">Accounts</a> |
+  <a href="/transactions">Transactions</a>
+  <a href="/transactions/newTransaction">new Transaction</a>
+</nav>
+<main>
+
+  <h1>Edit Account</h1>
+
+  <form method="post" th:action="@{/transactions/newTransaction}" th:object="${transaction}">
+    <div>
+      <label for="clientAccount">client Account id</label>
+      <input type="number" id="clientAccount" th:field="*{clientAccount}">
+    </div>
+    <div>
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" th:field="*{amount}">
+    </div>
+    <div>
+      <label>Transaction Type:</label>
+      <select th:field="*{transactionType}">
+        <option th:each="p : ${listTransactionTypes}" th:value="${p}" th:text="${p}" />
+      </select>
+    </div>
+    <input type="submit" value="Submit"><input type="reset" value="Reset">
+  </form>
+
+</main>
+<footer>
+  <p>&copy; 2024 amandass bank management system. All rights reserved.</p>
+</footer>
+</body>
+</html>
